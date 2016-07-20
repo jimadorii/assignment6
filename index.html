@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Pizza Orders</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JQuery -->
+   <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+
+    <!-- BEGIN MAIN container -->
+    <div class="container">
+     
+      <!-- BEGIN Header NAV area -->
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <img src="images/pizza-icon.png" class="icon">
+      </div>
+      <!-- END Header NAV area -->
+
+      <!-- BEGIN JUMBOTRON area -->
+     <div class="jumbotron">
+       
+        <span id="textshadow">
+        <h1>Jumbotron heading</h1>
+        <p class="lead">Pepperoni, extra cheese, and super saucy every time. <br />
+        Order your pizza here!</p>
+        </span>
+        
+        <!-- 
+        <p><a class="btn btn-lg btn-success" href="#" role="button">LETS GO!</a></p> 
+        -->
+      </div>
+      <!-- END JUMBOTRON area -->
+
+<h2>Enter your info</h2>
+<small class="text-muted">* denotes required field</small>
+   <br /><br />
+
+<!-- BEGIN FORM area -->
+<form name="myform" onsubmit="return validate()">
+ 
+ <!-- BEGIN NAME -->
+ <fieldset class="form-group">
+   
+    <label for="exampleTextarea" name="namehere">* Name: </label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="firstname"></textarea> <div id="notification"></div><br /> 				
+		
+ </fieldset>
+ 
+ <hr />
+ 
+<!-- END NAME -->
+   
+   
+ <fieldset class="form-group">
+   <!-- BEGIN - Address type selection area area -->
+    <label for="exampleSelect1">* Address Type: </label>
+       <select class="form-control" id="exampleSelect1" name="address" onchange='checkvalue(this.value)'>
+        <option disabled selected value>Please select one</option>  
+        <option value="house">House</option>
+        <option value="apartment">Apartment</option>
+        <option value="business">Business</option>
+        <option value="campus">Campus</option>
+        <option value="hotel">Hotel</option>
+        <option value="dorm">Dorm</option>
+        <option value="other">Other (enter below)</option>
+    </select> 
+<!-- BEGIN - Address type selection area area -->
+    
+<!-- BEGIN - INVISIBLE text box below for select "OTHER" address type option -->
+    <input type="text" name="invisoption" id="address" style='display:none' class="form-control" value="Enter address type" onFocus="clearText(this)" onBlur="clearText(this)"/>
+<!-- END - INVISIBLE text box below for select "OTHER" address type option -->
+
+  </fieldset>
+  
+  <fieldset class="form-group">
+  
+  <!-- BEGIN - Street address entry area -->
+   <label for="exampleTextarea">* Address:</label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="street"></textarea>
+   <!-- END - Street address entry area --> 
+        <br />
+    
+     <!-- BEGIN - Housing unit entry area - NOT a required entry area in linked Javascript -->
+    <label for="exampleTextarea">Unit Number: </label>
+    <small class="text-muted">Optional</small>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="unit"></textarea>
+        <br />
+     <!-- END - Housing unit entry area - NOT a required entry area in linked Javascript -->
+    
+     <!-- BEGIN - City name entry area -->
+    <label for="exampleTextarea">* City:</label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="city"></textarea>
+        <br />
+     <!-- END - City name entry area -->
+    
+     <!-- BEGIN - State name entry area -->        
+    <label for="exampleTextarea">* State:</label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="state1"></textarea>
+        <br />    
+     <!-- END - State name entry area -->
+    
+     <!-- BEGIN - Zip code entry area -->
+    <label for="exampleTextarea">* Zip Code:</label>
+        <textarea class="form-control" id="exampleTextarea" rows="1" name="zip"></textarea>
+     <!-- END - Zip code entry area -->
+    
+    <hr />
+                 
+    <!-- BEGIN - Phone entry area -->               
+    <label for="exampleInputEmail1">* Phone: </label>
+        <input type="tel" class="form-control" id="exampleInputEmail1" placeholder='"1234567890"' name="telephone">
+           <br />
+    <!-- END - Phone entry area -->        
+  </fieldset>
+  
+  
+  <!-- BEGIN - Email entry area -->
+  <fieldset class="form-group">
+    <label for="exampleInputEmail1">* Email address: </label>
+    <small class="text-muted">We'll never share your email with anyone else.</small>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder='"user@email.com"' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="emailentry">
+  </fieldset>
+   <!-- END - Email entry area -->
+<br />
+<hr>
+  
+<h2>Build your pizza</h2> 
+ 
+   <fieldset class="form-group" name="selectdough">
+  <!-- BEGIN - RADIO BUTTON area -->
+    
+     <label for="exampleTextarea" name="dough">* Select your dough: </label>
+       <br />
+        
+          <input type="radio" name="option" id="admOption" value="option1" onchange="doughSelectCheck(this.select);">
+          Hand Tossed
+          <br />
+              <select id="admDivCheck" style="display:none;">
+                 <option value="smhand" id="smhand"><!--Javascript population price dropdowns--></option>
+                 <option value="mdhand" id="mdhand"><!--Javascript population price dropdowns--></option>
+                 <option value="lghand" id="lghand"><!--Javascript population price dropdowns--></option>
+              </select>
+      
+          <input type="radio" name="option" id="admOption" value="option2" onchange="doughSelectCheck2(this.select);">
+          Thin Crust
+          <br />
+                  <select id="admDivCheck2" style="display:none;">
+                     <option value="mdthin" id="mdthin"><!--Javascript population price dropdowns--></option>
+                     <option value="lgthin" id="lgthin"><!--Javascript population price dropdowns--></option>
+                  </select>
+      
+          <input type="radio" name="option" id="admOption" value="option3" onchange="doughSelectCheck3(this.select);">
+          New York Style
+          <br />
+              <select id="admDivCheck3" style="display:none;">
+                 <option value="lgny" id="lgny"><!--Javascript population price dropdowns--></option>
+                 <option value="exlny" id="exlny"><!--Javascript population price dropdowns--></option>
+              </select>
+      
+          <input type="radio" name="option" id="admOption" value="option4" onchange="doughSelectCheck4(this.select);">
+          Gluten Free
+          <br />
+              <select id="admDivCheck4" style="display:none;">
+                 <option value="smgluten" id="smgluten"><!--Javascript population price dropdowns--></option>
+              </select>
+   </fieldset>             
+<hr>
+
+<!-- Cheese options dropdwown below-->
+  <fieldset class="form-group">
+    <label for="exampleTextarea" name="cheese">* Cheese options: </label>
+       
+        <select id="cheeseoptions">
+                 <option value="cheese1" id="cheese1"><!--Javascript population price dropdowns--></option>
+                 <option value="cheese2" id="cheese2" selected="selected"><!--Javascript population price dropdowns--></option>
+                 <option value="cheese3" id="cheese3"><!--Javascript population price dropdowns--></option>
+                 <option value="cheese4" id="cheese4"><!--Javascript population price dropdowns--></option>
+              </select>
+    </fieldset>      
+    
+ <!-- Sauce options dropdwown below-->
+  <fieldset class="form-group">
+    <label for="exampleTextarea" name="sauce">* Sauce options: </label>
+       
+        <select id="sauceoptions">
+                 <option value="sauce1" id="sauce1" selected="selected"><!--Javascript population price dropdowns--></option>
+                 <option value="sauce2" id="sauce2"><!--Javascript population price dropdowns--></option>
+                 <option value="sauce3" id="sauce3"><!--Javascript population price dropdowns--></option>
+              </select>
+    </fieldset>      
+  
+<!-- Topping options checkboxes below -->
+  <fieldset class="form-group">
+    <label for="exampleTextarea" name="sauce">* Topping options:
+    <br />
+    <small class="text-muted">* Each topping $.99 extra</small>
+    </label>
+    <br />
+    
+    <input type="checkbox" name="vehicle" value="Bike"> Pepperoni<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Sausage<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Ham<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Bacon<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Salami<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Peppers<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Olives<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Jalapenos<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Mushrooms<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Pineapple<br>
+    <input type="checkbox" name="vehicle" value="Bike"> Onion<br>
+    
+</fieldset>   
+  
+<!-- END - pizza dough selection area -->
+
+
+    <!--  <SELECT name="sel1" id="sel1" style="display: none;">  -->
+<br />
+<!-- END - pizza dough selection area -->
+
+  
+ 
+<br />
+<button type="submit" class="btn btn-primary">Submit</button>
+<br />
+<br />
+<br />
+</form>
+<!-- END FORM area -->
+     
+     
+     
+
+      <footer class="footer">
+        <p>&copy; 2015 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- END MAIN container -->
+    
+    
+  </body>
+  
+  <script type="text/javascript" src="js/script.js"></script>
+</html>

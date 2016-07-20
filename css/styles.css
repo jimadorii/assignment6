@@ -1,0 +1,31 @@
+.icon {
+    width: 2.75em;
+    height: 2.75em;
+}
+
+.jumbotron {
+    background-image: url(../images/pizza.jpg);
+    background-size: 100%;
+    color: white;
+}
+
+#textshadow {
+    text-shadow: 2px 2px 6px #000033; 
+}
+
+
+.btn-success { 
+    border-color:  white; 
+    background-color:  #D20606; 
+    color:#FFF;
+}
+
+.btn-success:hover { 
+    border-color: white; 
+    background-color: #b30000; 
+}
+
+/*for invisible address type box when other is clicked*/
+#address {
+    margin-top: 1.5em;
+}
